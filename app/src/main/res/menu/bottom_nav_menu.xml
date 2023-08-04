@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/firebase"
+        android:icon="@drawable/img"
+        android:title="Firebase"
+        />
+    <item
+        android:id="@+id/SharedReference"
+        android:icon="@drawable/img_1"
+        android:title="Storage"
+        />
+</menu>
+
