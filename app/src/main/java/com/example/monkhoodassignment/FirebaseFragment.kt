@@ -6,26 +6,34 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.monkhoodassignment.databinding.FragmentFirebaseBinding
 
 class FirebaseFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = FirebaseFragment()
-    }
 
-    private lateinit var viewModel: FirebaseViewModel
+    private var _binding: FragmentFirebaseBinding? = null
+    private val binding get() = _binding!!
+
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_firebase, container, false)
+
+        _binding = FragmentFirebaseBinding.inflate(inflater,container,false)
+        return (binding.root)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }

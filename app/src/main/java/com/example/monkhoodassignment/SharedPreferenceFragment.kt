@@ -6,12 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.monkhoodassignment.databinding.FragmentFirebaseBinding
+import com.example.monkhoodassignment.databinding.FragmentSharedPreferenceBinding
 
 class SharedPreferenceFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SharedPreferenceFragment()
-    }
+    private var _binding: FragmentSharedPreferenceBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var viewModel: SharedPreferenceViewModel
 
@@ -19,13 +20,17 @@ class SharedPreferenceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_shared_preference, container, false)
+        _binding = FragmentSharedPreferenceBinding.inflate(inflater,container,false)
+        return (binding.root)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SharedPreferenceViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }
