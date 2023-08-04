@@ -19,6 +19,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnadd.setOnClickListener {
+            startActivity(Intent(this,AddUser::class.java))
+        }
         val navView = binding.bottomNav
         val firebase_frag = FirebaseFragment()
         val sharedPref_frag = SharedPreferenceFragment()
